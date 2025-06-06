@@ -36,10 +36,13 @@
     }
 
     p {
-      font-size: 1.2rem;
-      margin: 0.5em 2em;
-      animation: fadeIn 3s ease-out;
-    }
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* adapta el tamaño de fuente */
+  margin: 1em 1em; /* reduce margen lateral para pantallas pequeñas */
+  animation: fadeIn 3s ease-out;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
 
     @keyframes glow {
       from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
