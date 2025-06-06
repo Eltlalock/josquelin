@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Josque💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love</title>
+  
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    audio {
+      margin-top: 20px;
+      animation: fadeIn 4s ease-out;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff66cc; }
-      50% { text-shadow: 0 0 20px #ff3399, 0 0 30px #ff66cc; }
-      100% { text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff66cc; }
-    }
 
     body {
       margin: 0;
@@ -44,15 +41,34 @@
       animation: fadeIn 3s ease-out;
     }
 
-    audio {
-      margin-top: 20px;
-      animation: fadeIn 4s ease-out;
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+      to { text-shadow: 0 0 20px #66ffff, 0 0 30px #00ffff; }
     }
+
+    .floating {
+      position: absolute;
+      font-size: 1.8rem;
+      animation: floatUp 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <h1>💎💖 My Love 💎💖</h1>
-  <p>Seguiré tomándote de la mano mientras tus pasos sigan queriendo caminar junto a los míos. Mientras tus silencios aún susurren mi nombre, y tu cuerpo siga recordando que fue hecho para encajar con el mío, sin necesidad de decirlo.
+  <h1>💍💎 My Love Perra 💎💍</h1>
+   <p>Seguiré tomándote de la mano mientras tus pasos sigan queriendo caminar junto a los míos. Mientras tus silencios aún susurren mi nombre, y tu cuerpo siga recordando que fue hecho para encajar con el mío, sin necesidad de decirlo.
 
 Lo que hemos construido no fue al azar, fue con entrega, deseo, paciencia… y algo de locura. Y si algún día el destino cambia la dirección del viento o tus latidos se sintonizan con otros ritmos, no haré preguntas ni intentaré retener lo que ya no se ofrece por voluntad.
 
@@ -60,10 +76,37 @@ No por orgullo… sino porque sé lo que soy. Sé lo que te doy.
 
 Y mientras tus labios sigan escogiendo los míos, mientras sigas deseando ser esa mujer que se rinde en mi piel, en mi lengua, en mis manos, en mis órdenes dulces… aquí estaré.
 
-Por eso, si aún deseas esto, si lo deseas, solo hazlo saber, con todo. No necesito promesas, solo tu decisión diaria de quedarte.</p>
-  <audio controls autoplay loop>
+Por eso, si aún deseas esto, si lo deseas, solo hazlo saber, con todo. No necesito promesas, solo tu decisión diaria de quedarte.
+</p>
+<audio controls autoplay loop>
     <source src="romantic_song.mp3" type="audio/mpeg">
     Tu navegador no soporta la reproducción de audio.
   </audio>
+
+  <script>
+    const symbols = ["💎", "💍", "❤️", "💜"];
+    const colors = {
+      "💎": "#00ccff",
+      "💍": "#fff700",
+      "❤️": "#ff3366",
+      "💜": "#cc66ff"
+    };
+
+    function createFloatingSymbol() {
+      const symbol = document.createElement("div");
+      const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+      symbol.textContent = randomSymbol;
+      symbol.classList.add("floating");
+      symbol.style.left = Math.random() * 100 + "vw";
+      symbol.style.top = "100vh";
+      symbol.style.color = colors[randomSymbol];
+      symbol.style.fontSize = 24 + Math.random() * 20 + "px";
+      symbol.style.animationDuration = 4 + Math.random() * 3 + "s";
+      document.body.appendChild(symbol);
+      setTimeout(() => symbol.remove(), 7000);
+    }
+
+    setInterval(createFloatingSymbol, 300);
+  </script>
 </body>
 </html>
