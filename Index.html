@@ -36,11 +36,11 @@
     }
 
     p {
-  font-size: clamp(.5rem, 1vw, 1.5rem); /* adapta el tamaño de fuente */
+  font-size: clamp(.5rem, 1vw, .5rem); /* adapta el tamaño de fuente */
   margin: 1em 1em; /* reduce margen lateral para pantallas pequeñas */
   animation: fadeIn 3s ease-out;
-  line-height: 1.6;
-  max-width: 90%;
+  line-height: 1;
+  max-width: 50%;
 }
 
 
@@ -100,10 +100,10 @@ Por eso, si aún deseas esto, si lo deseas, solo hazlo saber, con todo. No neces
       const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
       symbol.textContent = randomSymbol;
       symbol.classList.add("floating");
-      symbol.style.left = Math.random() * 100 + "vw";
+      symbol.style.left = Math.random() * 50 + "vw";
       symbol.style.top = "100vh";
       symbol.style.color = colors[randomSymbol];
-      symbol.style.fontSize = 24 + Math.random() * 20 + "px";
+      symbol.style.fontSize = 24 + Math.random() * 10 + "px";
       symbol.style.animationDuration = 4 + Math.random() * 3 + "s";
       document.body.appendChild(symbol);
       setTimeout(() => symbol.remove(), 7000);
